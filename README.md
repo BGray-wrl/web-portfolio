@@ -1,5 +1,7 @@
 # Website_Profile
 
+This is a **rough** work in progress. The overwhelming majority of these files were written by Pythagora's gpt pilot.
+
 A sophisticated multi-page portfolio website designed to showcase a client's professional profile, work, and interests to potential employers and the world. This project leverages modern web technologies to create an elegant and interactive user experience, allowing for dynamic project displays and easy content management.
 
 ## Overview
