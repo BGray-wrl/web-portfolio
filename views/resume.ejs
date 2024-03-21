@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<%- include('partials/_head.ejs') %>
+<body>
+<%- include('partials/_googleAnalytics.ejs') %>
+<%- include('partials/_header.ejs') %>
+<main role="main" class="container mt-4">
+  <h1>Resume</h1>
+  <p>Please find my resume linked below.</p>
+  <p><strong>Note to client:</strong> To update or add your resume, please replace the text below with a link to your resume or embed your resume directly into the page.</p>
+  <!-- Placeholder for a resume link -->
+  <p>Example: <a href="#">[Your Resume Link Here]</a></p> <!-- INPUT_REQUIRED {Replace "#" with the actual link to your resume} -->
+  <!-- Placeholder for embedding a resume -->
+  <p><strong>Embedding Example:</strong> Replace the '#' in the iframe src attribute with the link to your hosted resume for direct embedding.</p>
+  <iframe src="#" width="100%" height="500px" style="border:0;"></iframe> <!-- INPUT_REQUIRED {Replace "#" with the actual link to your hosted resume for embedding} -->
+</main>
+<%- include('partials/_footer.ejs') %>
+<script src="/js/main.js"></script>
+</body>
+</html>

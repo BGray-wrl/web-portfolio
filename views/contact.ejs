@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<%- include('partials/_head.ejs') %>
+<body>
+<%- include('partials/_googleAnalytics.ejs') %>
+<%- include('partials/_header.ejs') %>
+<main role="main" class="container mt-5">
+  <h1>Contact</h1>
+  <form id="contact-form" action="/api/contact" method="POST">
+    <input type="hidden" name="_csrf" value="<%= csrfToken %>">
+    <div class="mb-3">
+      <label for="name" class="form-label">Name</label>
+      <input type="text" class="form-control" id="name" name="name" required>
+    </div>
+    <div class="mb-3">
+      <label for="email" class="form-label">Email</label>
+      <input type="email" class="form-control" id="email" name="email" required>
+    </div>
+    <div class="mb-3">
+      <label for="message" class="form-label">Message</label>
+      <textarea class="form-control" id="message" name="message" rows="3" required></textarea>
+    </div>
+    <button type="submit" id="submit-button" class="btn btn-primary">Send</button>
+  </form>
+  <!-- Feedback message area -->
+  <div id="feedback" style="display: none;"></div>
+</main>
+<%- include('partials/_footer.ejs') %>
+<script src="/js/main.js"></script>
+<script>
+  // Parse the URL query parameters
+  const queryParams = new URLSearchParams(window.location.search);
+  const message = queryParams.get('message');
+  if (message === 'success') {
+    document.getElementById('feedback').style.display = 'block';
+    document.getElementById('feedback').innerHTML = '<div class="alert alert-success">Thank you for your message. We will get back to you shortly.</div>';
+  }
+</script>
+</body>
+</html>

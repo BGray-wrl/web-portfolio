@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<%- include('partials/_head.ejs') %>
+<body>
+<%- include('partials/_header.ejs') %>
+<main role="main" class="container">
+  <h1>Project Management</h1>
+  <form action="/cms/projects" method="POST">
+    <input type="hidden" name="_csrf" value="<%= csrfToken %>">
+    <input type="text" name="title" placeholder="Title" required>
+    <input type="text" name="category" placeholder="Category" required>
+    <textarea name="description" placeholder="Description" required></textarea>
+    <input type="text" name="links" placeholder="Links (comma-separated)" required>
+    <button type="submit">Add Project</button>
+  </form>
+  <% projects.forEach(function(project) { %>
+    <div>
+      <h3><%= project.title %></h3>
+      <p><%= project.description %></p>
+      <!-- Simplified for brevity -->
+      <form action="/cms/projects/<%= project._id %>" method="POST">
+        <input type="hidden" name="_method" value="DELETE">
+        <input type="hidden" name="_csrf" value="<%= csrfToken %>">
+        <button type="submit">Delete</button>
+      </form>
+    </div>
+  <% }) %>
+</main>
+</body>
+</html>

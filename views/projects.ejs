@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<%- include('partials/_head.ejs') %>
+<body>
+<%- include('partials/_googleAnalytics.ejs') %>
+<%- include('partials/_header.ejs') %>
+<main role="main" class="container mt-5">
+  <h1>Projects</h1>
+  <% Object.keys(categorizedProjects).forEach(function(category) { %>
+    <h2><%= category %></h2>
+    <div class="row">
+      <% categorizedProjects[category].forEach(function(project) { %>
+        <div class="col-md-4">
+          <div class="card mb-4">
+            <div class="card-body">
+              <h5 class="card-title"><%= project.title %></h5>
+              <p class="card-text"><%= project.description %></p>
+              <% if(project.binderLink) { %>
+                <a href="<%= project.binderLink %>" class="card-link">View in Binder</a>
+              <% } %>
+              <% project.links.forEach(function(link) { %>
+                <a href="<%= link %>" class="card-link">Project Link</a>
+              <% }) %>
+            </div>
+          </div>
+        </div>
+      <% }) %>
+    </div>
+  <% }) %>
+</main>
+<%- include('partials/_footer.ejs') %>
+<script src="/js/main.js"></script>
+</body>
+</html>
